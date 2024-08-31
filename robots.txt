@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Allow: /home.php
+Allow: /movielist.php
+Allow: /tvlist.php
+Allow: /faq.php
+Allow: /contact.php
+Disallow: /movies.php
+Disallow: /tvshows.php
+Disallow: /php/
+Disallow: /js/
+Disallow: /css/
+Disallow: /movies/
+Disallow: /tvshows/
+Disallow: /watchlist/
+
+Sitemap: https://www.caughtscene.ml/sitemap.xml
