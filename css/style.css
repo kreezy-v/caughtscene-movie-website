@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+:root,
+[data-theme="default"] {
+  --bg: #1a1a1a;
+  --bg-body: rgb(218, 218, 218);
+  --text-color: #141414;
+  --bg-container: #efeeef;
+  --page-text: #000;
+  --text: #fff;
+}
+@supports (--css: variables) {
+  [data-theme="dark"] {
+    --bg: rgb(218, 218, 218);
+    --bg-body: #2e2e2e;
+    --text-color: #fff;
+    --bg-container: #1a1a1a;
+    --page-text: #fff;
+    --text: #141414;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  min-height: 100vh;
+  background-color: var(--bg-body);
+  font-family: "Lato", sans-serif;
+}
+.theme-mob {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 125px;
+  right: 20px;
+  background: #c7493a;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999 !important;
+}
+.mob-icon {
+  margin-top: 20px;
+}
+#filter-svg {
+  display: none;
+}
+.mob-bg {
+  position: fixed;
+  border-radius: 20px 20px 0 0;
+  bottom: 0;
+  background-color: #141414;
+  height: 82px;
+  width: 100vw;
+  box-shadow: 0 -1rem 3rem rgba(102, 102, 102, 0.175) !important;
+  z-index: 1100;
+}
+.mob-nav {
+  background-color: #141414;
+  position: fixed;
+  bottom: 0;
+  list-style-type: none;
+  height: 80px;
+  filter: url("#goo");
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: fit-content;
+  z-index: 1100;
+}
+.mob-nav li a {
+  text-decoration: none;
+  color: #fff;
+  width: 80px;
+  height: 100%;
+  display: inline-grid;
+  place-items: center;
+  font-size: 20px;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.mob-nav li a .title {
+  display: none;
+}
+.mob-nav li .tv-drop {
+  display: none;
+  position: absolute;
+  top: -120px;
+  padding: 5px;
+  left: 25%;
+  background: none;
+}
+.mob-nav li .movies-drop {
+  display: none;
+  position: absolute;
+  top: -120px;
+  padding: 5px;
+  left: 5%;
+  background: none;
+}
+.mob-nav li > .tv-drop:nth-child(2),
+.mob-nav li > .movies-drop:nth-child(2) {
+  top: -60px;
+}
+.mob-nav li > a:hover {
+  color: #999;
+}
+
+.mob-nav li a.mob-nav-item-active {
+  color: #fff;
+  transform: translateY(-20%);
+  font-size: 25px;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.mob-nav li > a.mob-nav-item-active .title {
+  display: block;
+  font-size: 16px;
+}
+
+.mob-nav .mob-nav-indicator {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #141414;
+  position: absolute;
+  top: -35px;
+  /* left: calc(230px - 25px); */
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes zoom {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.2;
+  }
+  100% {
+    width: 1500px;
+    height: 1500px;
+    opacity: 0;
+  }
+}
+.field-icon {
+  float: right;
+  margin-right: 10px;
+  margin-top: -26px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+#toast-container > div {
+  opacity: 1;
+}
+#landing {
+  background: url("https://i.postimg.cc/8Pkw3VkG/landing-bg.jpg") no-repeat
+    center center fixed;
+  display: table;
+  height: 70%;
+  position: relative;
+  width: 100%;
+  background-size: cover;
+}
+.landing-logo {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  transition: all ease-in-out 0.3s;
+  cursor: pointer;
+}
+.card-show {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-hover:hover .card-show {
+  display: flex !important;
+  animation: fade_in_show 0.5s;
+}
+.text-hover:hover {
+  text-decoration: underline !important;
+  color: var(--text-color);
+}
+.text-hover-style:hover {
+  color: var(--text-color) !important;
+}
+@keyframes fade_in_show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.bottom-foot {
+  background: #1d1d1d;
+}
+.content .fas {
+  font-size: 1.4375rem;
+  background: #1a1a1a;
+  color: #fff;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .credit {
+    font-size: 0.6rem;
+  }
+  .btn-pagination {
+    display: none;
+  }
+  .btn-pagination.active {
+    display: initial;
+  }
+  .foot-text {
+    font-size: 0.7rem;
+  }
+  .foot > p:first-child {
+    font-size: 0.8rem !important;
+  }
+}
+
+.social a span {
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  background: #1a1a1a;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.social a span:hover {
+  background: #f12020;
+}
+footer h2::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 15%;
+  height: 2px;
+  background: #f12020;
+}
+.card-img-top {
+  width: 100%;
+  aspect-ratio: 63/88;
+  object-fit: cover;
+}
+
+.container-bg {
+  background: var(--bg-container);
+  max-width: 1320px !important;
+}
+.drop-btn {
+  background: var(--bg);
+  color: var(--text);
+}
+.drop-btn-active {
+  background: #689775;
+  color: #fff;
+}
+.drop-btn-active:hover {
+  color: #fff;
+  background: #b33020 !important;
+}
+.drop-btn:hover {
+  color: #fff;
+  background: #b33020 !important;
+}
+@media screen and (min-width: 1320px) {
+  .search-fix {
+    width: 1320px;
+  }
+}
+@media screen and (max-width: 1310px) {
+  .search-fix {
+    width: 100%;
+  }
+}
+.text-color {
+  color: var(--text-color);
+  font-weight: 500;
+}
+.page-numbers {
+  margin: 10px auto;
+  padding: 5px;
+  text-align: center;
+}
+.page-numbers a {
+  text-decoration: none;
+}
+.page-numbers .btn-pagination {
+  color: #fff;
+  background: #c7493a;
+  height: 45px;
+  width: 45px;
+  border: none;
+  outline: 0;
+  border-radius: 4px;
+  margin: 0 2.5px;
+  cursor: pointer;
+}
+.page-numbers .btn-pagination-control {
+  color: #fff;
+  background: #b33020;
+  height: 45px;
+  width: 45px;
+  border: none;
+  outline: 0;
+  border-radius: 4px;
+  margin: 0 2.5px;
+  cursor: pointer;
+}
+.page-numbers .btn-pagination.active {
+  background: var(--bg);
+  color: var(--text);
+}
+.page-numbers button:hover {
+  background: #689775;
+}
